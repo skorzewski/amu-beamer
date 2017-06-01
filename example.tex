@@ -1,0 +1,105 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+
+\mode<presentation>
+{
+  \usetheme[english]{PsiUAM}
+	\setbeamercovered{transparent = 28}
+}
+
+\title{The Beamer Presentation Beamer Theme}
+\subtitle{Information System Laboratory}
+\author[{R. Grundkiewicz, P. Sk{\'o}rzewski}]{Roman Grundkiewicz, Pawe{\l} Sk{\'o}rzewski}
+\date{21 Jan -- 21 Sep, 2012}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Outline}
+       \tableofcontents[currentsection]
+   \end{frame}
+}
+
+\section{Options}
+
+\begin{frame}
+	\frametitle{Available options}
+    PSI Beamer Theme supports followed options with the 
+    \texttt{\\usetheme[]\{PsiUAM\}} command:
+		\begin{description}
+ 			\item [\texttt{english}] sets the title page background to english version
+ 			\item [\texttt{blue}] sets the colour of decorative bars to navy blue
+ 		\end{description}
+\end{frame}
+
+\section{List examples}
+
+\begin{frame}
+
+	\frametitle{Itemize lists}
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit:
+		\begin{itemize}
+			\item sed do eiusmod tempor et dolore magna,
+      \item ullamco laboris ea commodo consequat:
+      \begin{itemize}
+        \item duis aute irure in,
+        \item velit esse dolore
+        \begin{itemize}
+          \item abc 123
+         \end{itemize}
+      \end{itemize}
+      \item sint occaecat non proident, sunt in culpa qui officia 
+        deserunt mollit anim id est laborum.
+		\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Enumerate list}
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit:
+		\begin{enumerate}
+			\item sed do eiusmod tempor et dolore magna,
+      \item ullamco laboris ea commodo consequat:
+      \begin{enumerate}
+        \item duis aute irure in,
+        \item velit esse dolore
+        \begin{enumerate}
+          \item abc 123
+         \end{enumerate}
+      \end{enumerate}
+      \item sint occaecat non proident, sunt in culpa qui officia 
+        deserunt mollit anim id est laborum.
+		\end{enumerate}
+
+\end{frame}	
+
+\section{Block examples}
+
+\begin{frame}
+	\frametitle{Blocks}
+	
+		\begin{theorem}[It's a theorem]
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 		
+    \end{theorem}
+		
+		\begin{alertblock}{Alert}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 		
+		\end{alertblock}
+
+		\begin{exampleblock}{Example}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 		
+		\end{exampleblock}
+		
+\end{frame}	
+
+\end{document}
