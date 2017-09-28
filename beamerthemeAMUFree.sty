@@ -11,27 +11,6 @@
 %
 
 % -------------------------------------------------------------------------
-% Introduce options
-
-\newif\ifbeamer@english
-\beamer@englishfalse
-\DeclareOptionBeamer{english}{\beamer@englishtrue}
-
-\newif\ifbeamer@blue
-\beamer@bluefalse
-\DeclareOptionBeamer{blue}{\beamer@bluetrue}
-
-% \newif\ifbeamer@centertitle
-% \beamer@centertitlefalse
-% \DeclareOptionBeamer{centertitle}{\beamer@centertitletrue}
-
-% \newif\ifbeamer@wmilogo
-% \beamer@wmilogofalse
-% \DeclareOptionBeamer{wmilogo}{\beamer@wmilogotrue}
-
-\ProcessOptionsBeamer
-
-% -------------------------------------------------------------------------
 % Defining the preamle
 
 \mode<presentation>
@@ -164,24 +143,6 @@
 
 }
 
-% Frame backgrounds
-
-\ifbeamer@blue%
-    \ifbeamer@english%
-        \pgfdeclareimage[width=\paperwidth]{psiTitleSlide}{img/psi-titleslide-en-blue.png}
-    \else%
-        \pgfdeclareimage[width=\paperwidth]{psiTitleSlide}{img/psi-titleslide-pl-blue.png}
-    \fi%
-    \pgfdeclareimage[width=\paperwidth,page=0]{psiBackground}{img/psi-background-blue.png}
-\else%
-    \ifbeamer@english%
-        \pgfdeclareimage[width=\paperwidth]{psiTitleSlide}{img/psi-titleslide-en-red.png}
-    \else%
-        \pgfdeclareimage[width=\paperwidth]{psiTitleSlide}{img/psi-titleslide-pl-red.png}
-    \fi%
-    \pgfdeclareimage[width=\paperwidth,page=0]{psiBackground}{img/psi-background-red.png}
-\fi%
-
 
 % Frame title
 
@@ -193,11 +154,11 @@
     \end{beamercolorbox}%
 \end{textblock*}%
 
-  \vskip0.2cm%
-  \begin{beamercolorbox}[wd=7.8cm,ht=1cm,left]{frame title}%
+\vskip0.2cm%
+\begin{beamercolorbox}[wd=11.6cm,ht=1cm,left]{frame title}%
     {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\par}%
-  \end{beamercolorbox}%
-  \vfil%
+\end{beamercolorbox}%
+\vfil%
 }
 
 % Footer
