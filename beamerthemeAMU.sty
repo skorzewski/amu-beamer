@@ -1,0 +1,344 @@
+% The beamer presentation theme for:
+%
+% Informations System Laboratory
+% Adam Mickiewicz University
+% Faculty of Mathematics & Computer Science
+%
+% authors:
+% Roman Grundkiewicz <romang@amu.edu.pl>,
+% Paweł Skórzewski <pawel.skorzewski@amu.edu.pl>
+% created: 2018-06-08
+% version: 1.0.0
+%
+
+% -------------------------------------------------------------------------
+% Introduce options
+
+\newif\ifbeamer@english
+\beamer@englishfalse
+\DeclareOptionBeamer{english}{\beamer@englishtrue}
+
+\newif\ifbeamer@wn
+\beamer@wnfalse
+\DeclareOptionBeamer{wn}{\beamer@wntrue}
+
+\newif\ifbeamer@wse
+\beamer@wsefalse
+\DeclareOptionBeamer{wse}{\beamer@wsetrue}
+
+\newif\ifbeamer@wns
+\beamer@wnsfalse
+\DeclareOptionBeamer{wns}{\beamer@wnstrue}
+
+\newif\ifbeamer@wh
+\beamer@whfalse
+\DeclareOptionBeamer{wh}{\beamer@whtrue}
+
+\newif\ifbeamer@wpa
+\beamer@wpafalse
+\DeclareOptionBeamer{wpa}{\beamer@wpatrue}
+
+\newif\ifbeamer@wnpid
+\beamer@wnpidfalse
+\DeclareOptionBeamer{wnpid}{\beamer@wnpidtrue}
+
+\newif\ifbeamer@wt
+\beamer@wtfalse
+\DeclareOptionBeamer{wt}{\beamer@wttrue}
+
+\newif\ifbeamer@wfpik
+\beamer@wfpikfalse
+\DeclareOptionBeamer{wfpik}{\beamer@wfpiktrue}
+
+\newif\ifbeamer@wmi
+\beamer@wmifalse
+\DeclareOptionBeamer{wmi}{\beamer@wmitrue}
+
+\newif\ifbeamer@wch
+\beamer@wchfalse
+\DeclareOptionBeamer{wch}{\beamer@wchtrue}
+
+\newif\ifbeamer@wf
+\beamer@wffalse
+\DeclareOptionBeamer{wf}{\beamer@wftrue}
+
+\newif\ifbeamer@wngig
+\beamer@wngigfalse
+\DeclareOptionBeamer{wngig}{\beamer@wngigtrue}
+
+\newif\ifbeamer@wb
+\beamer@wbfalse
+\DeclareOptionBeamer{wb}{\beamer@wbtrue}
+
+\newif\ifbeamer@wpia
+\beamer@wpiafalse
+\DeclareOptionBeamer{wpia}{\beamer@wpiatrue}
+
+\newif\ifbeamer@wa
+\beamer@wafalse
+\DeclareOptionBeamer{wa}{\beamer@watrue}
+
+\ProcessOptionsBeamer
+
+% -------------------------------------------------------------------------
+% Defining the preamle
+
+\mode<presentation>
+
+\usepackage{pgfcomp-version-0-65}
+\usepackage{xcolor}
+\usepackage{helvet}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{tikz}
+
+% -------------------------------------------------------------------------
+% Inner theme
+
+\useinnertheme{rectangles}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{blocks}[default]
+
+% -------------------------------------------------------------------------
+% Colors
+
+\definecolor{navy}{RGB}{10,31,98}
+\definecolor{gray}{RGB}{194,194,194}
+
+\ifbeamer@wn%
+    \definecolor{accent}{RGB}{193,175,229}%
+    \definecolor{alert}{RGB}{193,175,229}%
+\else%
+\ifbeamer@wse%
+    \definecolor{accent}{RGB}{0,147,212}%
+    \definecolor{alert}{RGB}{0,147,212}%
+\else%
+\ifbeamer@wns%
+    \definecolor{accent}{RGB}{0,35,149}%
+    \definecolor{alert}{RGB}{0,35,149}%
+\else%
+\ifbeamer@wh%
+    \definecolor{accent}{RGB}{66,126,156}%
+    \definecolor{alert}{RGB}{66,126,156}%
+\else%
+\ifbeamer@wpa%
+    \definecolor{accent}{RGB}{135,177,223}%
+    \definecolor{alert}{RGB}{135,177,223}%
+\else%
+\ifbeamer@wnpid%
+    \definecolor{accent}{RGB}{255,99,25}%
+    \definecolor{alert}{RGB}{255,99,25}%
+\else%
+\ifbeamer@wt%
+    \definecolor{accent}{RGB}{105,30,124}%
+    \definecolor{alert}{RGB}{105,30,124}%
+\else%
+\ifbeamer@wfpik%
+    \definecolor{accent}{RGB}{88,47,135}%
+    \definecolor{alert}{RGB}{88,47,135}%
+\else%
+\ifbeamer@wmi%
+    \definecolor{accent}{RGB}{228,38,24}%
+    \definecolor{alert}{RGB}{228,38,24}%
+\else%
+\ifbeamer@wch%
+    \definecolor{accent}{RGB}{207,0,61}%
+    \definecolor{alert}{RGB}{207,0,61}%
+\else%
+\ifbeamer@wf%
+    \definecolor{accent}{RGB}{222,0,89}%
+    \definecolor{alert}{RGB}{222,0,89}%
+\else%
+\ifbeamer@wngig%
+    \definecolor{accent}{RGB}{0,96,56}%
+    \definecolor{alert}{RGB}{0,96,56}%
+\else%
+\ifbeamer@wb%
+    \definecolor{accent}{RGB}{0,152,95}%
+    \definecolor{alert}{RGB}{0,152,95}%
+\else%
+\ifbeamer@wpia%
+    \definecolor{accent}{RGB}{0,15,37}%
+    \definecolor{alert}{RGB}{0,15,37}%
+\else%
+\ifbeamer@wa%
+    \definecolor{accent}{RGB}{109,10,36}%
+    \definecolor{alert}{RGB}{109,10,36}%
+\else%
+    \definecolor{accent}{RGB}{10,31,98}%
+    \definecolor{alert}{RGB}{228,38,24}%
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+
+\setbeamercolor{title}{fg=navy}
+\setbeamercolor{subtitle}{fg=navy}
+\setbeamercolor{author}{fg=navy}
+\setbeamercolor{date}{fg=navy}
+
+\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{frametitle}{fg=navy}
+\setbeamercolor{normal text}{fg=navy}
+
+\setbeamercolor{item}{fg=navy}
+\setbeamercolor{subitem}{fg=navy}
+\setbeamercolor{subsubitem}{fg=navy}
+\setbeamercolor{description item}{fg=navy}
+
+\setbeamercolor{alerted text}{fg=alert}
+\setbeamercolor{example text}{fg=gray}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=navy}
+\setbeamercolor{block title alerted}{use=example text,fg=white,bg=alert}
+\setbeamercolor{block title example}{use=alerted text,fg=black,bg=gray}
+\setbeamercolor{block body}{use=block title,fg=navy}
+
+\setbeamercolor{text in foot}{fg=white}
+
+\setbeamercolor{accent block}{fg=white,bg=accent}
+
+% -------------------------------------------------------------------------
+% Fonts
+
+\usefonttheme{professionalfonts}
+
+\setbeamerfont{title}{size=\Large,shape=\upshape,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize,shape=\upshape,series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large,shape=\upshape}
+\setbeamerfont{author}{size=\normalsize,shape=\upshape}
+\setbeamerfont{date}{size=\normalsize,shape=\upshape}
+\setbeamerfont{institute}{size=\tiny,shape=\upshape}
+
+\setbeamerfont{text in foot}{size=\tiny}
+
+% -------------------------------------------------------------------------
+% Margins
+
+\setbeamersize{text margin left=0.7cm,text margin right=0.7cm}
+
+% -------------------------------------------------------------------------
+% Outer theme
+
+% Title page
+
+\defbeamertemplate*{title page}{AMUBeamer}[1][]
+{%
+\vskip -0.25cm%
+\hskip 3.55cm%
+\begin{beamercolorbox}[wd=7.8cm,ht=1cm,left]{frametitle}%
+{\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}%
+\end{beamercolorbox}%
+\\
+
+\vskip 1.6cm%
+\hskip 3.55cm%
+\begin{beamercolorbox}[wd=7.8cm,left]{navy}%
+    \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par%
+\end{beamercolorbox}%
+\\
+
+\vskip 0.6cm%
+\hskip 3.55cm%
+\begin{beamercolorbox}[wd=7.8cm,left]{navy}%
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par%
+\end{beamercolorbox}%
+\\
+
+\ifx\insertdate\@empty%
+\else%
+    {\vfill%
+    \hskip 3.55cm%
+    \begin{beamercolorbox}[wd=7.8cm,left,leftskip=0cm]{navy}%
+        \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par%
+    \end{beamercolorbox}}%
+\fi%
+
+\ifx\insertauthor\@empty%
+\else%
+    {\vfill%
+    \hskip 3.55cm%
+    \begin{beamercolorbox}[wd=7.8cm,left,leftskip=0cm]{navy}%
+        \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par%
+    \end{beamercolorbox}}%
+\fi%
+\vskip -0.4cm%
+}
+
+% Frame backgrounds
+
+\ifbeamer@english%
+    \pgfdeclareimage[width=\paperwidth]{amuTitleSlide}{img/amu-titleslide-en.png}
+\else%
+    \pgfdeclareimage[width=\paperwidth]{amuTitleSlide}{img/amu-titleslide-pl.png}
+\fi%
+
+\pgfdeclareimage[width=\paperwidth,page=0]{amuBackground}{img/amu-background.png}
+
+\defbeamertemplate*{background canvas}{AMUBeamer}
+{%
+  \ifnum\thepage=1\relax%
+    \pgfuseimage{amuTitleSlide}
+    \begin{tikzpicture}[remember picture,overlay]%
+      \fill[accent] (-13.0,1.21) rectangle (-12.23,6.48);%
+    \end{tikzpicture}%
+  \else%
+    \pgfuseimage{amuBackground}
+  \fi%
+  \begin{tikzpicture}[remember picture,overlay]%
+    \fill[accent] (-8.53,0.42) rectangle (0.00,0.75);%
+  \end{tikzpicture}%
+  \begin{tikzpicture}[remember picture,overlay]%
+    \fill[accent] (-8.53,7.58) rectangle (0.00,7.66);%
+  \end{tikzpicture}%
+}
+
+% Frame title
+
+\defbeamertemplate*{frametitle}{AMUBeamer}
+{%
+  \vskip0.6cm%
+  \hskip3.6cm%
+  \begin{beamercolorbox}[wd=7.8cm,ht=1cm,left]{frame title}%
+    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\par}%
+  \end{beamercolorbox}%
+  \vfil%
+}
+
+% Footer
+
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{AMUBeamer}
+{%
+  \ifnum\thepage=1\relax%
+    %do nothing
+    \pgftext[left,base,at=\pgfpoint{4.4cm}{0.5cm}]{%
+      {\usebeamercolor[fg]{text in foot}\insertshortinstitute\par}%
+    }
+  \else%
+    \pgftext[left,base,at=\pgfpoint{4.4cm}{0.5cm}]{%
+      {\usebeamerfont{text in foot}\usebeamercolor[fg]{text in foot}\insertshortauthor\par%
+      \hskip 0.1cm--\hskip 0.1cm%
+      \usebeamercolor[fg]{text in foot}\insertshorttitle\par}%
+    }
+    \pgftext[right,base,at=\pgfpoint{12.2cm}{0.5cm}]{%
+      {\usebeamerfont{text in foot}\usebeamercolor[fg]{text in foot}%
+      \insertframenumber{}/\inserttotalframenumber\par}%
+    }
+  \fi%
+}
+
+\mode
+<all>
