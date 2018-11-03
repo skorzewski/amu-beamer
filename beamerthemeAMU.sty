@@ -92,6 +92,9 @@
 \usepackage[absolute,overlay]{textpos}
 \usepackage{tikz}
 
+% no hyphenation
+\hyphenpenalty=100000
+
 % -------------------------------------------------------------------------
 % Inner theme
 
@@ -216,10 +219,10 @@
 
 \setbeamerfont{title}{size=\Large,shape=\upshape,series=\bfseries}
 \setbeamerfont{subtitle}{size=\normalsize,shape=\upshape,series=\bfseries}
-\setbeamerfont{frametitle}{size=\Large,shape=\upshape}
-\setbeamerfont{author}{size=\normalsize,shape=\upshape}
-\setbeamerfont{date}{size=\normalsize,shape=\upshape}
-\setbeamerfont{institute}{size=\tiny,shape=\upshape}
+\setbeamerfont{frametitle}{size=\Large,shape=\upshape,series=\mdseries}
+\setbeamerfont{author}{size=\normalsize,shape=\upshape,series=\mdseries}
+\setbeamerfont{date}{size=\normalsize,shape=\upshape,series=\mdseries}
+\setbeamerfont{institute}{size=\tiny,shape=\upshape,series=\mdseries}
 
 \setbeamerfont{text in foot}{size=\tiny}
 
@@ -235,46 +238,37 @@
 
 \defbeamertemplate*{title page}{AMUBeamer}[1][]
 {%
-\vskip -0.25cm%
-\hskip 3.55cm%
-\begin{beamercolorbox}[wd=7.8cm,ht=1cm,left]{frametitle}%
-{\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}%
-\end{beamercolorbox}%
-\\
-
-\vskip 1.6cm%
-\hskip 3.55cm%
-\begin{beamercolorbox}[wd=7.8cm,left]{navy}%
+\pgftext[top,left,at=\pgfpoint{3.56cm}{2.2cm}]{%
+  {\begin{minipage}{7.8cm}%
+    \raggedright%
+    \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute%
+  \end{minipage}}%
+}%
+\pgftext[top,left,at=\pgfpoint{3.56cm}{1.0cm}]{%
+  {\begin{minipage}{7.8cm}%
+    \raggedright%
     \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par%
-\end{beamercolorbox}%
-\\
-
-\vskip 0.6cm%
-\hskip 3.55cm%
-\begin{beamercolorbox}[wd=7.8cm,left]{navy}%
+    \vspace{0.5cm}%
     \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par%
-\end{beamercolorbox}%
-\\
-
-\ifx\insertdate\@empty%
-\else%
-    {\vfill%
-    \hskip 3.55cm%
-    \begin{beamercolorbox}[wd=7.8cm,left,leftskip=0cm]{navy}%
-        \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par%
-    \end{beamercolorbox}}%
-\fi%
-
-\ifx\insertauthor\@empty%
-\else%
-    {\vfill%
-    \hskip 3.55cm%
-    \begin{beamercolorbox}[wd=7.8cm,left,leftskip=0cm]{navy}%
-        \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par%
-    \end{beamercolorbox}}%
-\fi%
-\vskip -0.4cm%
+    \ifx\insertdate\@empty%
+    \else%
+      \vspace{0.5cm}%
+      \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par%
+    \fi%
+  \end{minipage}}%
+}%
+\pgftext[bottom,left,at=\pgfpoint{3.56cm}{-4.8cm}]{%
+  {\begin{minipage}{7.8cm}%
+    \raggedright%
+    \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par%
+  \end{minipage}}%
+}%
+\pgftext[base,left,at=\pgfpoint{3.7cm}{-5.6cm}]{%
+  \raggedright%
+  {\usebeamerfont{text in foot}\usebeamercolor[fg]{text in foot}\insertshortinstitute\par}%
+}%
 }
+
 
 % Frame backgrounds
 
@@ -324,9 +318,6 @@
 {%
   \ifnum\thepage=1\relax%
     %do nothing
-    \pgftext[left,base,at=\pgfpoint{4.4cm}{0.5cm}]{%
-      {\usebeamercolor[fg]{text in foot}\insertshortinstitute\par}%
-    }
   \else%
     \pgftext[left,base,at=\pgfpoint{4.4cm}{0.5cm}]{%
       {\usebeamerfont{text in foot}\usebeamercolor[fg]{text in foot}\insertshortauthor\par%
