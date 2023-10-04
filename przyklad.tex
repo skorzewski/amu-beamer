@@ -3,17 +3,18 @@
 \usepackage{graphics}
 \usepackage{hyperref}
 \usepackage{minted}
-\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 \mode<presentation>
 {
-  \usetheme[en,widetitle]{AMU3}
+  \usetheme[widetitle]{AMU3}
 	\setbeamercovered{transparent = 28}
 }
 
-\title[AMU3 Beamer theme]{This is AMU3 theme}
-\subtitle{A Beamer presentation theme\\for Adam Mickiewicz University, Pozna{\'n}\\inspired by its visual identity guidelines}
-\author[{P. Sk{\'o}rzewski}]{Pawe{\l} Sk{\'o}rzewski}
+\title[Motyw AMU3]{To jest motyw AMU3}
+\subtitle{Szablon prezentacji Beamer\\dla Uniwersytetu im. Adama Mickiewicza w~Poznaniu\\inspirowany Systemem Identyfikacji Wizualnej UAM}
+\author[{P. Skórzewski}]{Paweł Skórzewski}
 \date{2023}
 
 \begin{document}
@@ -25,49 +26,48 @@
 \AtBeginSection[]
 {
   \begin{frame}
-    \frametitle{Outline}
+    \frametitle{Spis treści}
     \tableofcontents[currentsection]
   \end{frame}
 }
 
-\section{Introduction}
+\section{Wstęp}
 
 \begin{frame}
-  \frametitle{Introduction}
-  \textbf{AMU3} theme is an \emph{unofficial} \LaTeX{} Beamer theme for Adam Mickiewicz University, Poznań.
+  \frametitle{Wstęp}
+  Motyw \textbf{AMU3} jest \emph{nieoficjalnym} szablonem \LaTeX{} Beamer dla Uniwersytetu im. Adama Mickiewicza w~Poznaniu.
 
   \medskip
 
-  It has been prepared on the basis of the template no.~3 for MS~PowerPoint, avalilable from the university's visual identity guidelines webpage, at \url{https://siw.amu.edu.pl}
+  Został przygotowany w~oparciu o~wzór nr~3 prezentacji PowerPoint, dostępny na stronie Systemu Identyfikacji Wizualnej UAM pod adresem \url{https://siw.amu.edu.pl}
 \end{frame}
 
-\section{Options}
+\section{Opcje}
 
 \begin{frame}[containsverbatim]
-  \frametitle{Available options}
-  AMU3 theme supports the following options with the
-  \mintinline{latex}{\usetheme[]{AMU3}} command:
+  \frametitle{Dostępne opcje}
+  Dla motywu AMU3 dostępne są następujące opcje (polecenie \mintinline{latex}{\usetheme[]{AMU3}}):
   \begin{description}
-    \item [\texttt{en}] sets the Adam Mickiewicz University's wordmark on the title page to the English version
-    \item [\texttt{widetitle}] allows title page texts to overlap the eagle watermark (useful for long titles / subtitles / lists of authors)
+    \item [\texttt{en}] ustawia anglojęzyczne logotypy na stronie tytułowej
+    \item [\texttt{widetitle}] umożliwia nachodzenie tekstów na stronie tytułowej na sygnet -- znak wodny (przydatne, gdy tytuł / podtytuł / lista autorów są długie)
   \end{description}
   \begin{exampleblock}{Examples}
     \begin{minted}{latex}
-\usetheme{AMU3}      % Polish version (default)
-\usetheme[en]{AMU3}  % English version
+\usetheme{AMU3}      % wersja polska (domyślna)
+\usetheme[en]{AMU3}  % wersja angielska
 \usetheme[widetitle]{AMU3}
-                     % Polish version with wide title
+                     % wersja polska z szerokim tytułem
 \usetheme[en,widetitle]{AMU3}
-                     % English version with wide title
+                     % wersja angielska z szerokim tytułem
     \end{minted}
   \end{exampleblock}
 \end{frame}
 
-\section{Examples}
+\section{Przykłady}
 
 \begin{frame}
 
-  \frametitle{Itemized list}
+  \frametitle{Lista punktowana}
   Lorem ipsum dolor sit amet, consectetur adipisicing elit:
   \begin{itemize}
     \item sed do eiusmod tempor et dolore magna,
@@ -86,7 +86,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Enumerated list}
+  \frametitle{Lista numerowana}
 
   Lorem ipsum dolor sit amet, consectetur adipisicing elit:
   \begin{enumerate}
@@ -106,17 +106,17 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Blocks}
+  \frametitle{Bloki}
 
-  \begin{theorem}[A sample theorem]
+  \begin{theorem}[Twierdzenie]
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   \end{theorem}
 
-  \begin{alertblock}{Alert}
+  \begin{alertblock}{Uwaga}
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   \end{alertblock}
 
-  \begin{exampleblock}{Example}
+  \begin{exampleblock}{Przykład}
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   \end{exampleblock}
 
