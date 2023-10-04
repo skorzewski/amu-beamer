@@ -1,0 +1,188 @@
+% The beamer presentation theme for:
+%
+% Adam Mickiewicz University
+%
+% author:
+% Paweł Skórzewski <pawel.skorzewski@amu.edu.pl>
+% created: 2023-10-03
+% version: 2.0.0
+%
+
+% -------------------------------------------------------------------------
+% Introduce options
+
+\newif\ifbeamer@en
+\beamer@enfalse
+\DeclareOptionBeamer{en}{\beamer@entrue}
+
+\newif\ifbeamer@widetitle
+\beamer@widetitlefalse
+\DeclareOptionBeamer{widetitle}{\beamer@widetitletrue}
+
+\ProcessOptionsBeamer
+
+% -------------------------------------------------------------------------
+% Defining the preamle
+
+\mode<presentation>
+
+\usepackage{pgfcomp-version-0-65}
+\usepackage{xcolor}
+\usepackage{helvet}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{tikz}
+
+% no hyphenation
+\hyphenpenalty=100000
+
+% -------------------------------------------------------------------------
+% Inner theme
+
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{section in toc}[sections numbered]
+
+% -------------------------------------------------------------------------
+% Colors
+
+\definecolor{base}{RGB}{0,45,105}
+\definecolor{accent}{RGB}{0,45,105}
+
+\definecolor{red}{RGB}{201,33,35}
+\definecolor{yellow}{RGB}{255,136,0}
+\definecolor{green}{RGB}{2,114,35}
+\definecolor{teal}{RGB}{0,146,189}
+\definecolor{blue}{RGB}{0,94,168}
+\definecolor{purple}{RGB}{143,35,179}
+
+\setbeamercolor{title}{fg=base}
+\setbeamercolor{subtitle}{fg=base}
+\setbeamercolor{author}{fg=base}
+\setbeamercolor{date}{fg=base}
+
+\setbeamercolor{structure}{fg=base}
+\setbeamercolor{frametitle}{fg=base}
+\setbeamercolor{normal text}{fg=base}
+
+\setbeamercolor{item}{fg=base}
+\setbeamercolor{subitem}{fg=base}
+\setbeamercolor{subsubitem}{fg=base}
+\setbeamercolor{description item}{fg=base}
+
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=green}
+
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamercolor{block title}{fg=base}
+\setbeamercolor{block title alerted}{fg=red}
+\setbeamercolor{block title example}{fg=teal}
+\setbeamercolor{block body}{fg=base}
+\setbeamercolor{block body alerted}{fg=red}
+\setbeamercolor{block body example}{fg=teal}
+
+\setbeamercolor{text in foot}{fg=white}
+
+% -------------------------------------------------------------------------
+% Fonts
+
+\usefonttheme{professionalfonts}
+
+\setbeamerfont{title}{size=\Large,shape=\upshape,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize,shape=\upshape,series=\mdseries}
+\setbeamerfont{frametitle}{size=\Large,shape=\upshape,series=\bfseries}
+\setbeamerfont{author}{size=\normalsize,shape=\upshape,series=\mdseries}
+\setbeamerfont{date}{size=\normalsize,shape=\upshape,series=\mdseries}
+\setbeamerfont{institute}{size=\normalsize,shape=\upshape,series=\mdseries}
+
+\setbeamerfont{text in foot}{size=\scriptsize}
+
+% -------------------------------------------------------------------------
+% Margins
+
+\setbeamersize{text margin left=0.6cm,text margin right=0.6cm}
+
+% -------------------------------------------------------------------------
+% Outer theme
+
+% Title page
+
+\ifbeamer@widetitle%
+  \newcommand{\titlewidth}{9.6cm}
+\else%
+  \newcommand{\titlewidth}{5.6cm}
+\fi
+
+\defbeamertemplate*{title page}{AMUBeamer}[1][]
+{%
+  \pgftext[top,left,at=\pgfpoint{1.0cm}{0.7cm}]{%
+    {\begin{minipage}{\titlewidth}%
+          \raggedright%
+          \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par%
+          \vspace{0.3cm}%
+          \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par%
+          \vspace{0.6cm}%
+          \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par%
+          \vspace{0.6cm}%
+          \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par%
+        \end{minipage}}%
+  }%
+}
+
+
+% Frame backgrounds
+
+\ifbeamer@en%
+  \pgfdeclareimage[width=\paperwidth]{amuTitleSlide}{img/amu-titleslide-en.pdf}
+\else%
+  \pgfdeclareimage[width=\paperwidth]{amuTitleSlide}{img/amu-titleslide-pl.pdf}
+\fi%
+
+\pgfdeclareimage[width=\paperwidth]{amuBackground}{img/amu-background.pdf}
+
+\defbeamertemplate*{background canvas}{AMUBeamer}
+{%
+  \ifnum\thepage=1\relax%
+    \pgfuseimage{amuTitleSlide}
+  \else%
+    \pgfuseimage{amuBackground}
+  \fi%
+}
+
+% Frame title
+
+\defbeamertemplate*{frametitle}{AMUBeamer}
+{%
+  \begin{beamercolorbox}[wd=7.8cm,ht=1cm,left]{frame title}%
+    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\par}%
+  \end{beamercolorbox}%
+  \vfil%
+}
+
+% Footer
+
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{AMUBeamer}
+{%
+  \ifnum\thepage=1\relax%
+    %do nothing
+  \else%
+    \pgftext[left,base,at=\pgfpoint{0.6cm}{0.14cm}]{%
+      {\usebeamerfont{text in foot}\usebeamercolor[fg]{text in foot}%
+          \insertshortauthor\par}%
+    }
+    \pgftext[center,base,at=\pgfpoint{6.4cm}{0.14cm}]{%
+      {\usebeamerfont{text in foot}\usebeamercolor[fg]{text in foot}%
+          \insertshorttitle\par}%
+    }
+    \pgftext[right,base,at=\pgfpoint{12.2cm}{0.14cm}]{%
+      {\usebeamerfont{text in foot}\usebeamercolor[fg]{text in foot}%
+          \insertframenumber{}/\inserttotalframenumber\par}%
+    }
+  \fi%
+}
+
+\mode
+<all>

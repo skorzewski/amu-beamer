@@ -2,108 +2,127 @@
 \usepackage{graphicx}
 \usepackage{graphics}
 \usepackage{hyperref}
+\usepackage{minted}
 \usepackage[english]{babel}
 
 \mode<presentation>
 {
-  \usetheme[english]{AMU}
+  \usetheme[en,widetitle]{AMU3}
 	\setbeamercovered{transparent = 28}
 }
 
-\title{This is AMU\\Beamer theme}
-\subtitle{SIW-inspired presentation theme\\for Adam Mickiewicz University in Pozna{\'n}}
+\title[AMU3 Beamer theme]{This is AMU3 theme}
+\subtitle{A Beamer presentation theme\\for Adam Mickiewicz University, Pozna{\'n}\\inspired by its visual identity guidelines}
 \author[{P. Sk{\'o}rzewski}]{Pawe{\l} Sk{\'o}rzewski}
-\date{2018}
+\date{2023}
 \institute[zpjn.wmi.amu.edu.pl]{Faculty of Mathematics and Computer Science\\Department of Natural Language Processing}
 
 \begin{document}
 
 \begin{frame}
-	\titlepage
+  \titlepage
 \end{frame}
 
 \AtBeginSection[]
 {
-   \begin{frame}
-       \frametitle{Outline}
-       \tableofcontents[currentsection]
-   \end{frame}
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
 }
+
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Introduction}
+  \textbf{AMU3} theme is an \emph{unofficial} \LaTeX{} Beamer theme for Adam Mickiewicz University, Poznań.
+
+  \medskip
+
+  It has been prepared on the basis of the template no.~3 for MS~PowerPoint, avalilable from the university's visual identity guidelines webpage, at \url{https://siw.amu.edu.pl}
+\end{frame}
 
 \section{Options}
 
-\begin{frame}
-	\frametitle{Available options}
-    AMUBeamer theme supports the following options with the 
-    \texttt{\\usetheme[]\{AMUBeamer\}} command:
-		\begin{description}
- 			\item [\texttt{english}] sets the Adam Mickiewicz University's wordmark on the title page to the English version
- 			\item [\texttt{wmi}] sets the colour of decorative bars to WMI red
- 			\item [\texttt{wn}] sets the colour of decorative bars to WN violet
- 			\item [\texttt{wb}] sets the colour of decorative bars to WB green
- 			\item [etc.] \ldots
- 		\end{description}
+\begin{frame}[containsverbatim]
+  \frametitle{Available options}
+  AMU3 theme supports the following options with the
+  \mintinline{latex}{\usetheme[]{AMU3}} command:
+  \begin{description}
+    \item [\texttt{en}] sets the Adam Mickiewicz University's wordmark on the title page to the English version
+    \item [\texttt{widetitle}] allows title page texts to overlap the eagle watermark (useful for long titles / subtitles / lists of authors)
+  \end{description}
+  \begin{exampleblock}{Examples}
+    \begin{minted}{latex}
+\usetheme{AMU3}      % Polish version (default)
+\usetheme[en]{AMU3}  % English version
+\usetheme[widetitle]{AMU3}
+                     % Polish version with wide title
+\usetheme[en,widetitle]{AMU3}
+                     % English version with wide title
+    \end{minted}
+  \end{exampleblock}
 \end{frame}
 
 \section{List examples}
 
 \begin{frame}
 
-	\frametitle{Itemize lists}
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit:
-		\begin{itemize}
-			\item sed do eiusmod tempor et dolore magna,
-      \item ullamco laboris ea commodo consequat:
-      \begin{itemize}
-        \item duis aute irure in,
-        \item velit esse dolore
-        \begin{itemize}
-          \item abc 123
-         \end{itemize}
-      \end{itemize}
-      \item sint occaecat non proident, sunt in culpa qui officia 
-        deserunt mollit anim id est laborum.
-		\end{itemize}
+  \frametitle{Itemize list}
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit:
+  \begin{itemize}
+    \item sed do eiusmod tempor et dolore magna,
+    \item ullamco laboris ea commodo consequat:
+          \begin{itemize}
+            \item duis aute irure in,
+            \item velit esse dolore
+                  \begin{itemize}
+                    \item abc 123
+                  \end{itemize}
+          \end{itemize}
+    \item sint occaecat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
+  \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Enumerate list}
+  \frametitle{Enumerate list}
 
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit:
-		\begin{enumerate}
-			\item sed do eiusmod tempor et dolore magna,
-      \item ullamco laboris ea commodo consequat:
-      \begin{enumerate}
-        \item duis aute irure in,
-        \item velit esse dolore
-        \begin{enumerate}
-          \item abc 123
-         \end{enumerate}
-      \end{enumerate}
-      \item sint occaecat non proident, sunt in culpa qui officia 
-        deserunt mollit anim id est laborum.
-		\end{enumerate}
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit:
+  \begin{enumerate}
+    \item sed do eiusmod tempor et dolore magna,
+    \item ullamco laboris ea commodo consequat:
+          \begin{enumerate}
+            \item duis aute irure in,
+            \item velit esse dolore
+                  \begin{enumerate}
+                    \item abc 123
+                  \end{enumerate}
+          \end{enumerate}
+    \item sint occaecat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
+  \end{enumerate}
 
-\end{frame}	
+\end{frame}
 
 \section{Block examples}
 
 \begin{frame}
-	\frametitle{Blocks}
-	
-		\begin{theorem}[It's a theorem]
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 		
-    \end{theorem}
-		
-		\begin{alertblock}{Alert}
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 		
-		\end{alertblock}
+  \frametitle{Blocks}
 
-		\begin{exampleblock}{Example}
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 		
-		\end{exampleblock}
-		
-\end{frame}	
+  \begin{theorem}[A sample theorem]
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{theorem}
+
+  \begin{alertblock}{Alert}
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{alertblock}
+
+  \begin{exampleblock}{Example}
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{exampleblock}
+
+\end{frame}
 
 \end{document}
